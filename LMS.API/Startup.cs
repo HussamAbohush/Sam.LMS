@@ -25,14 +25,14 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        var connectionString = Configuration.GetConnectionString("DefaultConnection");
+        var connectionString = Configuration.GetConnectionString("Default");
         services.AddControllers();
         services.AddLogging();
 
         if (!string.IsNullOrEmpty(connectionString))
         {
             services.AddDbContext<LibraryDBContext>(options => {
-                options.UseMySQL(connectionString);
+                options.UseSqlServer(connectionString);
                 options.AddInterceptors(new DatabaseInterceptor());
             });
         }

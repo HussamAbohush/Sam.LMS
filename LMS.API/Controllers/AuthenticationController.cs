@@ -39,7 +39,7 @@ public class AuthenticationController : BaseController
     {
         ServiceResult<UserDto> user = await userService.GetAsync(id);
 
-        if (user  == null)
+        if (user.Data  == null)
         {
             return new ServiceResult<string> { Success = false, Data = "Failed. A user with this id does not exist." };
         }

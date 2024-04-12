@@ -7,7 +7,8 @@ namespace HH.Lms.Data.Repository.EntityRepository;
 
 public class UserRepository: GenericRepository<User>
 {
-    public UserRepository() : base() { }
+    public UserRepository()  { }
+
     public UserRepository(LibraryDBContext baseDBContext) : base(baseDBContext) { 
     }
 
